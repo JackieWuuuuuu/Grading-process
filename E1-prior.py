@@ -29,10 +29,10 @@ def get_macula_center(image_path):
 # 计算 E1 分数
 def calculate_E1(lesion_image_path, macula_center, visualize=False):
     color_def = {
-        "EX": ([0, 100, 100], [10, 255, 255]),      # 红色
-        "H":  ([100, 100, 100], [140, 255, 255]),   # 蓝色
-        "MA": ([40, 100, 100], [80, 255, 255]),     # 绿色
-        "CW": ([150, 50, 50], [180, 255, 255])      # 粉色
+        "EX": ([0, 100, 100], [10, 255, 255]),      
+        "H":  ([100, 100, 100], [140, 255, 255]),   
+        "MA": ([40, 100, 100], [80, 255, 255]),    
+        "CW": ([150, 50, 50], [180, 255, 255])      
     }
 
     weights = {
@@ -55,10 +55,10 @@ def calculate_E1(lesion_image_path, macula_center, visualize=False):
 
     # 象限区域
     regions = [
-        (0, 0, center_y, center_x),                   # 左上
-        (0, center_x, center_y, width),               # 右上
-        (center_y, 0, height, center_x),              # 左下
-        (center_y, center_x, height, width)           # 右下
+        (0, 0, center_y, center_x),                   
+        (0, center_x, center_y, width),               
+        (center_y, 0, height, center_x),            
+        (center_y, center_x, height, width)           
     ]
 
     results = []
@@ -126,9 +126,9 @@ def process_with_dual_folders(folder_A, folder_B, output_csv):
 
     print(f"\n所有处理完成，结果保存至 {output_csv}")
 
-# 示例调用
+# 调用
 if __name__ == "__main__":
-    folder_A = r"C:\UltraLight-VMUNet-Output\IDRiD_Output\4_pdr\Source_Photo"  # 原图像（256×256）文件夹
-    folder_B = r"C:\UltraLight-VMUNet-Output\IDRiD_Output\4_pdr\Combine"    # 病灶图像（600×600）文件夹
+    folder_A = r"C:\UltraLight-VMUNet-Output\IDRiD_Output\4_pdr\Source_Photo"  
+    folder_B = r"C:\UltraLight-VMUNet-Output\IDRiD_Output\4_pdr\Combine"   
     output_csv = r"C:\UltraLight-VMUNet-Output\IDRiD_Output\4_pdr\4-E1.csv"
     process_with_dual_folders(folder_A, folder_B, output_csv)
