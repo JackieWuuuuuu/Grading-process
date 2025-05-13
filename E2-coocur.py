@@ -6,12 +6,12 @@ import matplotlib.pyplot as plt
 from ultralytics import YOLO
 import csv
 
-# 定义病灶颜色 (HSV范围)
+# 定义病灶颜色
 color_def = {
-    "EX": ([0, 100, 100], [10, 255, 255]),      # 红色
-    "H":  ([100, 100, 100], [140, 255, 255]),   # 蓝色
-    "MA": ([40, 100, 100], [80, 255, 255]),     # 绿色
-    "CW": ([150, 50, 50], [180, 255, 255])      # 粉色
+    "EX": ([0, 100, 100], [10, 255, 255]),      
+    "H":  ([100, 100, 100], [140, 255, 255]),   
+    "MA": ([40, 100, 100], [80, 255, 255]),   
+    "CW": ([150, 50, 50], [180, 255, 255])     
 }
 labels = list(color_def.keys())
 label_to_idx = {label: i for i, label in enumerate(labels)}
@@ -118,8 +118,7 @@ def get_yolo_center(model_path, detect_image_path):
             return xywh[0], xywh[1]
     return None, None
 
-# =================== 主程序：批量处理 ===================
-
+#主程序
 if __name__ == "__main__":
     model_path = r"C:\PythonCode\ultralytics-v11-main\runs\train\exp2\weights\best.pt"
     yolo_input_img_folder = r"C:\UltraLight-VMUNet-Output\IDRiD_Output\4_pdr\Source_Photo"
