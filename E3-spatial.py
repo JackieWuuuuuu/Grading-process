@@ -5,18 +5,15 @@ import torch
 import math
 from tqdm import tqdm
 
-# 设置每类病灶的半径（mm）和权重
 lesion_params = {
     'MA': {'R': 3.0, 'w': 0.1},
     'H': {'R': 2.5, 'w': 0.2},
     'EX': {'R': 2.0, 'w': 0.3},
     'CW': {'R': 1.5, 'w': 0.4},
-    'NB': {'R': 1.0, 'w': 0.0},  # 可自定义或忽略 NB
-}
+    'NB': {'R': 1.0, 'w': 0.0}, 
 
-# 像素到毫米的转换比例 & 图像半径
 PIXEL_TO_MM = 30 / 256
-IMAGE_RADIUS_MM = 15.0  # 图像半径
+IMAGE_RADIUS_MM = 15.0 
 
 def get_center_and_class(result):
     xywh = result.boxes.xywh.cpu().numpy()
@@ -59,7 +56,6 @@ if __name__ == '__main__':
     model_lesion = YOLO(r'C:\PythonCode\ultralytics-main\runs\detect\train12\weights\best.pt')
     model_macula = YOLO(r'C:\PythonCode\ultralytics-v11-main\runs\train\exp2\weights\best.pt')
 
-    # 获取图像列表
     image_files = [f for f in os.listdir(image_folder) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
 
     results = []
@@ -80,11 +76,10 @@ if __name__ == '__main__':
             results.append((img_file, 1.0))
             continue
 
-        # 计算归一化空间偏移代价
+        # 计算空间代价
         E_spatial = calculate_E_spatial(lesion_data, macula_center)
         E_spatial_normalized = E_spatial / (IMAGE_RADIUS_MM ** 2)
 
-        # 添加到结果中
         results.append((img_file, round(E_spatial_normalized, 4)))
 
     # 写入 CSV 文件
