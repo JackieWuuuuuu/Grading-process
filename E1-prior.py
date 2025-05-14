@@ -8,11 +8,10 @@ from ultralytics import YOLO
 import matplotlib
 from PIL import Image
 
-# 中文支持
 matplotlib.rcParams['font.family'] = 'SimHei'
 matplotlib.rcParams['axes.unicode_minus'] = False
 
-# 模型路径
+# 模型
 MACULA_MODEL_PATH = r"C:\PythonCode\ultralytics-v11-main\runs\train\exp2\weights\best.pt"
 macula_model = YOLO(MACULA_MODEL_PATH)
 
@@ -42,7 +41,6 @@ def calculate_E1(lesion_image_path, macula_center, visualize=False):
         "CW": 0.4
     }
 
-    # 读取并转换病灶图
     lesion_img = Image.open(lesion_image_path).convert("RGB").resize((600, 600))
     lesion_array = np.array(lesion_img)
     hsv_lesion = cv2.cvtColor(lesion_array, cv2.COLOR_RGB2HSV)
@@ -107,7 +105,6 @@ def process_with_dual_folders(folder_A, folder_B, output_csv):
             print(f"病灶图缺失: {filename}")
             continue
 
-        # 缩放原图为 600×600 并保存为临时文件用于检测
         image = Image.open(path_A).convert("RGB").resize((600, 600))
         temp_path = "temp_input.png"
         image.save(temp_path)
