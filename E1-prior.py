@@ -12,7 +12,7 @@ matplotlib.rcParams['font.family'] = 'SimHei'
 matplotlib.rcParams['axes.unicode_minus'] = False
 
 # 模型
-MACULA_MODEL_PATH = r"C:\PythonCode\ultralytics-v11-main\runs\train\exp2\weights\best.pt"
+MACULA_MODEL_PATH = r"xxx.pt"
 macula_model = YOLO(MACULA_MODEL_PATH)
 
 # 获取黄斑中心坐标
@@ -125,7 +125,7 @@ def process_with_dual_folders(folder_A, folder_B, output_csv):
 
 # 调用
 if __name__ == "__main__":
-    folder_A = r"C:\UltraLight-VMUNet-Output\IDRiD_Output\4_pdr\Source_Photo"  
-    folder_B = r"C:\UltraLight-VMUNet-Output\IDRiD_Output\4_pdr\Combine"   
-    output_csv = r"C:\UltraLight-VMUNet-Output\IDRiD_Output\4_pdr\4-E1.csv"
+    folder_A = r"A"  
+    folder_B = r"B"   
+    output_csv = r"XXX.csv"
     process_with_dual_folders(folder_A, folder_B, output_csv)
