@@ -120,10 +120,10 @@ def get_yolo_center(model_path, detect_image_path):
 
 #主程序
 if __name__ == "__main__":
-    model_path = r"C:\PythonCode\ultralytics-v11-main\runs\train\exp2\weights\best.pt"
-    yolo_input_img_folder = r"C:\UltraLight-VMUNet-Output\IDRiD_Output\4_pdr\Source_Photo"
-    analysis_target_img_folder = r"C:\UltraLight-VMUNet-Output\IDRiD_Output\4_pdr\Combine"
-    output_csv_path = r"C:\UltraLight-VMUNet-Output\IDRiD_Output\4_pdr\4-E2.csv"
+    model_path = r"XXX.pt"
+    yolo_input_img_folder = r"A"
+    analysis_target_img_folder = r"B"
+    output_csv_path = r"XXX.csv"
 
     # 计算全局共现矩阵
     C_total = compute_global_co_matrix(analysis_target_img_folder)
