@@ -19,15 +19,15 @@ Performs **spatial relationship analysis** among lesion types. It quantifies les
 Implements a **least squares optimization** algorithm that integrates prior knowledge, co-occurrence, and spatial constraints to fit an optimal lesion relationship model.
 
 ### 5. `Least_squares_no.py`
-A baseline version of the least squares model **without prior knowledge** incorporated. Useful for ablation study and evaluating the contribution of prior terms.
+A baseline version of the least squares model **without constraint** incorporated. Useful for ablation study and evaluating the contribution of prior terms.
 
 ## Use Case
 
 These scripts are part of a larger diabetic retinopathy research pipeline that supports lesion detection, segmentation, and grading.
 
-- Useful for **statistical lesion analysis
-- Helps model **clinical lesion distribution
-- Enables **ablation studies** and comparative experiments
+- Useful for statistical lesion analysis
+- Helps model clinical lesion distribution
+- Enables comparative experiments
 
 ## Requirements
 
