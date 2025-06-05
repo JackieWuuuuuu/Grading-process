@@ -4,7 +4,7 @@
 
 This repository contains a set of Python scripts for analyzing diabetic retinopathy (DR) lesion relationships using prior knowledge, co-occurrence statistics, spatial constraints, and least squares optimization.
 
-## 📁 File Overview
+## File Overview
 
 ### 1. `E1-prior.py`
 Extracts **prior knowledge** regarding diabetic retinopathy lesion distribution, such as the typical locations and occurrence frequencies of various lesions. This serves as a baseline for later comparative analyses.
@@ -21,21 +21,18 @@ Implements a **least squares optimization** algorithm that integrates prior know
 ### 5. `Least_squares_no.py`
 A baseline version of the least squares model **without prior knowledge** incorporated. Useful for ablation study and evaluating the contribution of prior terms.
 
-## 🧠 Use Case
+## Use Case
 
 These scripts are part of a larger diabetic retinopathy research pipeline that supports lesion detection, segmentation, and grading.
 
-- 📊 Useful for **statistical lesion analysis
-- 📍 Helps model **clinical lesion distribution
-- 🧪 Enables **ablation studies** and comparative experiments
+- Useful for **statistical lesion analysis
+- Helps model **clinical lesion distribution
+- Enables **ablation studies** and comparative experiments
 
-## 🛠️ Requirements
+## Requirements
 
 - Python 3.8+
 - NumPy
 - Pandas
 - Matplotlib (for optional visualizations)
 
-Install required packages:
-```bash
-pip install -r requirements.txt
